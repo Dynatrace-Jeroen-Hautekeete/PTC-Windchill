@@ -1,0 +1,103 @@
+{
+  "anomalyDetection": {
+    "loadingTimeThresholds": {
+      "enabled": false,
+      "thresholds": []
+    },
+    "outageHandling": {
+      "globalOutage": true,
+      "globalOutagePolicy": {
+        "consecutiveRuns": 1
+      },
+      "localOutage": false,
+      "localOutagePolicy": {
+        "affectedLocations": null,
+        "consecutiveRuns": null
+      },
+      "retryOnError": true
+    }
+  },
+  "automaticallyAssignedApps": [],
+  "createdFrom": "API",
+  "enabled": false,
+  "events": [
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_7B01B602D4B53D4E }}",
+      "name": "Loading of Server Status page",
+      "sequenceNumber": 1
+    }
+  ],
+  "frequencyMin": 60,
+  "keyPerformanceMetrics": {
+    "loadActionKpm": "VISUALLY_COMPLETE",
+    "xhrActionKpm": "VISUALLY_COMPLETE"
+  },
+  "locations": [
+    "{{.syntheticlocation__PTC_PRIVATE_LOCATION__id}}"
+  ],
+  "managementZones": [
+    {
+      "id": "{{.builtinmanagementzones__PTC__id}}",
+      "name": "PTC"
+    }
+  ],
+  "manuallyAssignedApps": [
+    "{{.applicationweb__PTC__id}}"
+  ],
+  "name": "{{.name}}",
+  "script": {
+    "configuration": {
+      "chromiumStartupFlags": {
+        "disable-web-security": false
+      },
+      "device": {
+        "deviceName": "Desktop",
+        "orientation": "landscape"
+      }
+    },
+    "events": [
+      {
+        "description": "Loading of Server Status page",
+        "type": "navigate",
+        "url": "https://{{ .url.ptc_url }}/Windchill/wtcore/jsp/jmx/serverStatus.jsp",
+        "validate": [
+          {
+            "failIfFound": false,
+            "isRegex": false,
+            "match": "",
+            "target": {
+              "locators": [
+                {
+                  "type": "css",
+                  "value": "a[href=\"#WindchillDS\"]:contains(\"Available\")"
+                }
+              ]
+            },
+            "type": "element_match"
+          },
+          {
+            "failIfFound": false,
+            "isRegex": false,
+            "match": "",
+            "target": {
+              "locators": [
+                {
+                  "type": "css",
+                  "value": "a[href=\"#WindchillDS\"]:contains(\"Available\")"
+                }
+              ]
+            },
+            "type": "element_match"
+          }
+        ],
+        "wait": {
+          "waitFor": "page_complete"
+        }
+      }
+    ],
+    "type": "clickpath",
+    "version": "1.0"
+  },
+  "tags": [],
+  "type": "BROWSER"
+}

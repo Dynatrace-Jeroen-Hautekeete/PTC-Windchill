@@ -1,0 +1,6 @@
+{
+  "globalOutages": true,
+  "globalConsecutiveOutageCountThreshold": 1,
+  "localOutages": false,
+  "retryOnError": true
+}

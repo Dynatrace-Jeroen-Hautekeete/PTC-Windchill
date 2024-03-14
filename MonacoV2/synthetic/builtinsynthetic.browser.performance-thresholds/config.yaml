@@ -1,0 +1,40 @@
+configs:
+- id: FileServerDownload
+  config:
+    template: disabled.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.performance-thresholds
+      schemaVersion: "1.6"
+      scope:
+        configId: FileServerDownload
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: QueueCheck
+  config:
+    template: disabled.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.performance-thresholds
+      schemaVersion: "1.6"
+      scope:
+        configId: QueueCheck
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: ServerStatus
+  config:
+    template: disabled.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.performance-thresholds
+      schemaVersion: "1.6"
+      scope:
+        configId: ServerStatus
+        configType: synthetic-monitor
+        property: id
+        type: reference

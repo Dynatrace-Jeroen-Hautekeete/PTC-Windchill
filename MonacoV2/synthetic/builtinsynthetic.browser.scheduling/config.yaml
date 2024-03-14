@@ -1,0 +1,58 @@
+configs:
+- id: FileServerDownload
+  config:
+    parameters:
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: scheduling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.scheduling
+      schemaVersion: 3.4.2
+      scope:
+        configId: FileServerDownload
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: QueueCheck
+  config:
+    parameters:
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: scheduling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.scheduling
+      schemaVersion: 3.4.2
+      scope:
+        configId: QueueCheck
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: ServerStatus
+  config:
+    parameters:
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: scheduling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.scheduling
+      schemaVersion: 3.4.2
+      scope:
+        configId: ServerStatus
+        configType: synthetic-monitor
+        property: id
+        type: reference

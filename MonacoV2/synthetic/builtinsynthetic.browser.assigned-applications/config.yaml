@@ -1,0 +1,61 @@
+configs:
+- id: FileServerDownload
+  config:
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+    template: assignedapplication.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.assigned-applications
+      schemaVersion: 1.1.1
+      scope:
+        configId: FileServerDownload
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: QueueCheck
+  config:
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+    template: assignedapplication.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.assigned-applications
+      schemaVersion: 1.1.1
+      scope:
+        configId: QueueCheck
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: ServerStatus
+  config:
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+    template: assignedapplication.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.assigned-applications
+      schemaVersion: 1.1.1
+      scope:
+        configId: ServerStatus
+        configType: synthetic-monitor
+        property: id
+        type: reference

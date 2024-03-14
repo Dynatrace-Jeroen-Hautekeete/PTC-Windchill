@@ -1,0 +1,8 @@
+{
+  "frequency": 60,
+  "locations": [
+    {
+      "location": "{{.syntheticlocation__PTC_PRIVATE_LOCATION__id}}"
+    }
+  ]
+}

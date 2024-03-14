@@ -1,0 +1,107 @@
+configs:
+- id: FileServerDownload
+  config:
+    name: Windchill File Server Download Check
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+      builtinmanagementzones__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: builtin:management-zones
+        property: id
+        type: reference
+      extractedIDs:
+        type: value
+        value:
+          id_SYNTHETIC_TEST_STEP_35F07485BE1BB0D0: SYNTHETIC_TEST_STEP-35F07485BE1BB0D0
+          id_SYNTHETIC_TEST_STEP_67A403AD82D39DB7: SYNTHETIC_TEST_STEP-67A403AD82D39DB7
+          id_SYNTHETIC_TEST_STEP_0145BA4FAE89F6A3: SYNTHETIC_TEST_STEP-0145BA4FAE89F6A3
+          id_SYNTHETIC_TEST_STEP_339A110CF8B0489F: SYNTHETIC_TEST_STEP-339A110CF8B0489F
+          id_SYNTHETIC_TEST_STEP_B4DDFE1128BE1D40: SYNTHETIC_TEST_STEP-B4DDFE1128BE1D40
+      url:
+        type: value
+        value:
+          ptc_url: REPLACE_THIS_URL
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: fileserverdownload.json
+    skip: false
+  type:
+    api: synthetic-monitor
+- id: QueueCheck
+  config:
+    name: Windchill Queue Check
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+      builtinmanagementzones__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: builtin:management-zones
+        property: id
+        type: reference
+      extractedIDs:
+        type: value
+        value:
+          id_SYNTHETIC_TEST_STEP_2B3A0F1C4D8A3C9F: SYNTHETIC_TEST_STEP-2B3A0F1C4D8A3C9F
+          id_SYNTHETIC_TEST_STEP_490F25AFD45D89BA: SYNTHETIC_TEST_STEP-490F25AFD45D89BA
+          id_SYNTHETIC_TEST_STEP_844FF782D5679720: SYNTHETIC_TEST_STEP-844FF782D5679720
+          id_SYNTHETIC_TEST_STEP_E450739F46190736: SYNTHETIC_TEST_STEP-E450739F46190736
+      url:
+        type: value
+        value:
+          ptc_url: REPLACE_THIS_URL
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: queuecheck.json
+    skip: false
+  type:
+    api: synthetic-monitor
+- id: ServerStatus
+  config:
+    name: Windchill Server Status
+    parameters:
+      applicationweb__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+      builtinmanagementzones__PTC__id:
+        project: windchill
+        configId: PTC
+        configType: builtin:management-zones
+        property: id
+        type: reference
+      extractedIDs:
+        type: value
+        value:
+          id_SYNTHETIC_TEST_STEP_7B01B602D4B53D4E: SYNTHETIC_TEST_STEP-7B01B602D4B53D4E
+      url:
+        type: value
+        value:
+          ptc_url: REPLACE_THIS_URL          
+      syntheticlocation__PTC_PRIVATE_LOCATION__id:
+        configId: PTC_PRIVATE_LOCATION
+        configType: synthetic-location
+        property: id
+        type: reference
+    template: serverstatus.json
+    skip: false
+  type:
+    api: synthetic-monitor

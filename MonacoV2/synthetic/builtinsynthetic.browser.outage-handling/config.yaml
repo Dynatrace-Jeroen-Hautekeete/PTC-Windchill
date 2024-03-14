@@ -1,0 +1,40 @@
+configs:
+- id: FileServerDownload
+  config:
+    template: outagehandling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.outage-handling
+      schemaVersion: 1.3.2
+      scope:
+        configId: FileServerDownload
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: QueueCheck
+  config:
+    template: outagehandling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.outage-handling
+      schemaVersion: 1.3.2
+      scope:
+        configId: QueueCheck
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: ServerStatus
+  config:
+    template: outagehandling.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.outage-handling
+      schemaVersion: 1.3.2
+      scope:
+        configId: ServerStatus
+        configType: synthetic-monitor
+        property: id
+        type: reference

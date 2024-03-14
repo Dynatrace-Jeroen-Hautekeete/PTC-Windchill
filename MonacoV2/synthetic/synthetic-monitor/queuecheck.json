@@ -1,0 +1,127 @@
+{
+  "anomalyDetection": {
+    "loadingTimeThresholds": {
+      "enabled": false,
+      "thresholds": []
+    },
+    "outageHandling": {
+      "globalOutage": true,
+      "globalOutagePolicy": {
+        "consecutiveRuns": 1
+      },
+      "localOutage": false,
+      "localOutagePolicy": {
+        "affectedLocations": null,
+        "consecutiveRuns": null
+      },
+      "retryOnError": true
+    }
+  },
+  "automaticallyAssignedApps": [],
+  "createdFrom": "API",
+  "enabled": false,
+  "events": [
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_2B3A0F1C4D8A3C9F }}",
+      "name": "Loading of \"https://{{ .url.ptc_url }}/Windchill/app/#ptc1/comp/queue.table\"",
+      "sequenceNumber": 1
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_E450739F46190736 }}",
+      "name": "click on \"Severe/Failed Entries\"",
+      "sequenceNumber": 2
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_490F25AFD45D89BA }}",
+      "name": "click on \"Severe/Failed Entries\" (2)",
+      "sequenceNumber": 3
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_844FF782D5679720 }}",
+      "name": "Validate queues",
+      "sequenceNumber": 4
+    }
+  ],
+  "frequencyMin": 60,
+  "keyPerformanceMetrics": {
+    "loadActionKpm": "VISUALLY_COMPLETE",
+    "xhrActionKpm": "VISUALLY_COMPLETE"
+  },
+  "locations": [
+    "{{.syntheticlocation__PTC_PRIVATE_LOCATION__id}}"
+  ],
+  "managementZones": [
+    {
+      "id": "{{.builtinmanagementzones__PTC__id}}",
+      "name": "PTC"
+    }
+  ],
+  "manuallyAssignedApps": [
+    "{{.applicationweb__PTC__id}}"
+  ],
+  "name": "{{.name}}",
+  "script": {
+    "configuration": {
+      "chromiumStartupFlags": {
+        "disable-web-security": false
+      },
+      "device": {
+        "deviceName": "Desktop",
+        "orientation": "landscape"
+      }
+    },
+    "events": [
+      {
+        "description": "Loading of \"https://{{ .url.ptc_url }}/Windchill/app/#ptc1/comp/queue.table\"",
+        "type": "navigate",
+        "url": "https://{{ .url.ptc_url }}/Windchill/app/#ptc1/comp/queue.table",
+        "wait": {
+          "waitFor": "page_complete"
+        }
+      },
+      {
+        "button": 0,
+        "description": "click on \"Severe/Failed Entries\"",
+        "target": {
+          "locators": [
+            {
+              "type": "css",
+              "value": "div:contains(\"Severe/Failed Entries\"):eq(23)"
+            }
+          ]
+        },
+        "type": "click"
+      },
+      {
+        "button": 0,
+        "description": "click on \"Severe/Failed Entries\" (2)",
+        "target": {
+          "locators": [
+            {
+              "type": "css",
+              "value": "div:contains(\"Severe/Failed Entries\"):eq(23)"
+            }
+          ]
+        },
+        "type": "click",
+        "validate": [
+          {
+            "failIfFound": true,
+            "isRegex": false,
+            "match": "Stopped",
+            "type": "text_match"
+          }
+        ]
+      },
+      {
+        "description": "Validate queues",
+        "javaScript": "var table = document.getElementsByClassName(\"x-grid3-body\")[0];\r\n\r\nvar queues = [];\r\nvar fail = 0;\r\nvar threshold = 10;\r\nfor (var i = 0; i \u003c table.childElements().length; i++) {\r\n    tableChild = table.childElements();\r\n    for (var i = 0; i \u003c table.childElements().length; i++) {\r\n\r\n        try {\r\n            console.log(tableChild[i].getElementsByTagName(\"td\")[1].getElementsByTagName(\"div\")[0].innerHTML);\r\n            console.log(tableChild[i].getElementsByTagName(\"td\")[9].getElementsByTagName(\"div\")[0].innerHTML);\r\n\r\n            var elem = tableChild[i].getElementsByTagName(\"td\")[9].getElementsByTagName(\"div\")[0].innerHTML;\r\n            var integer = parseInt(elem.replace(/,/g, ''), 10);\r\n            if (integer \u003e= threshold) {\r\n                queues.push(tableChild[i].getElementsByTagName(\"td\")[1].getElementsByTagName(\"div\")[0].innerHTML);\r\n                fail = 1;\r\n            }\r\n        } catch (err) {\r\n            if (fail == 1) {\r\n                var failString = \"Queues with Failed Entries: \";\r\n                for (var i = 0; i \u003c queues.length; i++) {\r\n                    failString += queues[i] + \", \";\r\n                }\r\n                api.fail(failString);\r\n            } else {\r\n                api.finish();\r\n            }\r\n        }\r\n    }\r\n}",
+        "type": "javascript"
+      }
+    ],
+    "type": "clickpath",
+    "version": "1.0"
+  },
+  "tags": [],
+  "type": "BROWSER"
+}

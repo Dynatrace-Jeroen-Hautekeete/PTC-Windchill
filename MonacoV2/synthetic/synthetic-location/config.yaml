@@ -1,0 +1,8 @@
+configs:
+- id: PTC_PRIVATE_LOCATION
+  config:
+    name: DT-Laptop
+    template: PTC_PRIVATE_LOCATION.json
+    skip: true
+  type:
+    api: synthetic-location

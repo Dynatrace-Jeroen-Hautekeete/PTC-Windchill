@@ -1,0 +1,40 @@
+configs:
+- id: FileServerDownload
+  config:
+    template: visuallycomplete.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.kpms
+      schemaVersion: 0.0.1
+      scope:
+        configId: FileServerDownload
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: QueueCheck
+  config:
+    template: visuallycomplete.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.kpms
+      schemaVersion: 0.0.1
+      scope:
+        configId: QueueCheck
+        configType: synthetic-monitor
+        property: id
+        type: reference
+- id: ServerStatus
+  config:
+    template: visuallycomplete.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:synthetic.browser.kpms
+      schemaVersion: 0.0.1
+      scope:
+        configId: ServerStatus
+        configType: synthetic-monitor
+        property: id
+        type: reference

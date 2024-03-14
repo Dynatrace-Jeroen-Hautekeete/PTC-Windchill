@@ -1,0 +1,159 @@
+{
+  "anomalyDetection": {
+    "loadingTimeThresholds": {
+      "enabled": false,
+      "thresholds": []
+    },
+    "outageHandling": {
+      "globalOutage": true,
+      "globalOutagePolicy": {
+        "consecutiveRuns": 1
+      },
+      "localOutage": false,
+      "localOutagePolicy": {
+        "affectedLocations": null,
+        "consecutiveRuns": null
+      },
+      "retryOnError": true
+    }
+  },
+  "automaticallyAssignedApps": [],
+  "createdFrom": "API",
+  "enabled": false,
+  "events": [
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_0145BA4FAE89F6A3 }}",
+      "name": "Load document page",
+      "sequenceNumber": 1
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_B4DDFE1128BE1D40 }}",
+      "name": "click",
+      "sequenceNumber": 2
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_35F07485BE1BB0D0 }}",
+      "name": "check for double click",
+      "sequenceNumber": 3
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_67A403AD82D39DB7 }}",
+      "name": "click",
+      "sequenceNumber": 4
+    },
+    {
+      "entityId": "{{ .extractedIDs.id_SYNTHETIC_TEST_STEP_339A110CF8B0489F }}",
+      "name": "Validate Replica Server",
+      "sequenceNumber": 5
+    }
+  ],
+  "frequencyMin": 60,
+  "keyPerformanceMetrics": {
+    "loadActionKpm": "VISUALLY_COMPLETE",
+    "xhrActionKpm": "VISUALLY_COMPLETE"
+  },
+  "locations": [
+    "{{.syntheticlocation__PTC_PRIVATE_LOCATION__id}}"
+  ],
+  "managementZones": [
+    {
+      "id": "{{.builtinmanagementzones__PTC__id}}",
+      "name": "PTC"
+    }
+  ],
+  "manuallyAssignedApps": [
+    "{{.applicationweb__PTC__id}}"
+  ],
+  "name": "{{.name}}",
+  "script": {
+    "configuration": {
+      "chromiumStartupFlags": {
+        "disable-web-security": false
+      },
+      "device": {
+        "deviceName": "Desktop",
+        "orientation": "landscape"
+      }
+    },
+    "events": [
+      {
+        "description": "Load document page",
+        "type": "navigate",
+        "url": "https://{{ .url.ptc_url }}",
+        "wait": {
+          "waitFor": "page_complete"
+        }
+      },
+      {
+        "button": 0,
+        "description": "click",
+        "target": {
+          "locators": [
+            {
+              "type": "css",
+              "value": "a[href$=\"https://{{ .url.ptc_url }}\"]"
+            },
+            {
+              "type": "css",
+              "value": "img[src$=\"https://{{ .url.ptc_url }}\"]"
+            },
+            {
+              "type": "css",
+              "value": "#dataStoreGeneral table tbody tr:nth-child(3) td:nth-child(3) a:nth-child(3) img"
+            },
+            {
+              "type": "css",
+              "value": "#dataStoreGeneral table.attributePanel-group-panel tbody tr td.attributePanel-value a img:eq(1)"
+            }
+          ]
+        },
+        "type": "click",
+        "wait": {
+          "waitFor": "page_complete"
+        }
+      },
+      {
+        "description": "check for double click",
+        "javaScript": "var target1 = document.getElementById(\"dataStoreGeneral\");\rif (target1 !== null) {\r      api.info(\"--\u003e found datastore\");\r} else {\r    api.info(\"--\u003e not found datastore\");\r    api.skipNextSyntheticEvent();\r}",
+        "type": "javascript"
+      },
+      {
+        "button": 0,
+        "description": "click",
+        "target": {
+          "locators": [
+            {
+              "type": "css",
+              "value": "a[href$=\"https://{{ .url.ptc_url }}\"]"
+            },
+            {
+              "type": "css",
+              "value": "img[src$=\"https://{{ .url.ptc_url }}\"]"
+            },
+            {
+              "type": "css",
+              "value": "#dataStoreGeneral table tbody tr:nth-child(3) td:nth-child(3) a:nth-child(3) img"
+            },
+            {
+              "type": "css",
+              "value": "#dataStoreGeneral table.attributePanel-group-panel tbody tr td.attributePanel-value a img:eq(1)"
+            }
+          ]
+        },
+        "type": "click",
+        "wait": {
+          "waitFor": "page_complete"
+        }
+      },
+      {
+        "description": "Validate Replica Server",
+        "javaScript": "var replica = \"{{ .url.ptc_url }}\";\nif (replica === window.location.host) {\n    api.finish();\n} else {\n    api.fail(\"Didn't download from replica server\");}",
+        "type": "javascript"
+      }
+    ],
+    "type": "clickpath",
+    "version": "1.0"
+  },
+  "tags": [],
+  "type": "BROWSER"
+}
