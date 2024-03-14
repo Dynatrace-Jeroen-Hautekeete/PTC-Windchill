@@ -1,0 +1,55 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "com.ptc.netmarkets.model.NmObjectCommands",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean"
+          ],
+          "methodName": "copy",
+          "modifiers": [],
+          "returnType": "com.ptc.netmarkets.util.table.NmHTMLTable",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean"
+          ],
+          "methodName": "list_copy",
+          "modifiers": [],
+          "returnType": "com.ptc.netmarkets.util.table.NmHTMLTable",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "annotations": [],
+      "className": "com.ptc.netmarkets.model.StandardNmObjectService",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "java.lang.String",
+            "java.lang.String",
+            "java.lang.String",
+            "java.util.ArrayList"
+          ],
+          "methodName": "getPSPart",
+          "modifiers": [],
+          "returnType": "java.util.ArrayList",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

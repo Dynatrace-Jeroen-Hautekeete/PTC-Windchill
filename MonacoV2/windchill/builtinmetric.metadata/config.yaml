@@ -1,0 +1,19 @@
+configs:
+- id: ptc_exceptioncount
+  config:
+    template: exceptioncount.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:metric.metadata
+      schemaVersion: "4.27"
+      scope: metric-calc:service.exceptioncount
+- id: ptc_actionnamebyuser
+  config:
+    template: actionnamebyuser.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:metric.metadata
+      schemaVersion: "4.27"
+      scope: metric-calc:service.actionnamebyuser

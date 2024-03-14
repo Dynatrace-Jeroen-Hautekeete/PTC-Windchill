@@ -1,0 +1,7 @@
+{
+  "applications": [
+    {
+      "application": "{{.applicationweb__PTC__id}}"
+    }
+  ]
+}

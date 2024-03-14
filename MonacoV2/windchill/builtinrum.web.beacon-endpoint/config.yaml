@@ -1,0 +1,14 @@
+configs:
+- id: PTC
+  config:
+    template: windchill.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:rum.web.beacon-endpoint
+      schemaVersion: "1"
+      scope:
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference

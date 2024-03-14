@@ -1,0 +1,16 @@
+configs:
+- id: ptc_actionname
+  config:
+    name: ActionName
+    template: actionname.json
+    skip: false
+  type:
+    api: request-attributes
+
+- id: ptc_getremoteuser
+  config:
+    name: GetRemoteUser
+    template: getremoteuser.json
+    skip: false
+  type:
+    api: request-attributes

@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "wt.dataops.delete.DeleteTask",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "methodName": "_run",
+          "modifiers": [],
+          "returnType": "com.ptc.core.task.TaskResult",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

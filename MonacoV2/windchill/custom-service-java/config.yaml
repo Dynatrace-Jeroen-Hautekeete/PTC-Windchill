@@ -1,0 +1,92 @@
+configs:
+- id: ptc_createoperation
+  config:
+    name: Create Operation
+    template: createoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_renameoperation
+  config:
+    name: Rename Operation
+    template: renameoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_setpreferenceoperation
+  config:
+    name: Set Preference Operation
+    template: setpreferenceoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_deleteoperation
+  config:
+    name: Delete Operation
+    template: deleteoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_checkinoperation
+  config:
+    name: Checkin Operation
+    template: checkinoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_moveoperation
+  config:
+    name: Move Operation
+    template: moveoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_createdocumentoperation
+  config:
+    name: Create Document Operation
+    template: createdocumentoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_pasteoperation
+  config:
+    name: Paste Operation
+    template: pasteoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_foldernavigation
+  config:
+    name: Folder Navigation
+    template: foldernavigation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_windchill_loginbean
+  config:
+    name: WC_LoginBean
+    template: windchill_loginbean.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_editoperation
+  config:
+    name: Edit Operation
+    template: editoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_copyoperation
+  config:
+    name: Copy Operation
+    template: copyoperation.json
+    skip: false
+  type:
+    api: custom-service-java
+- id: ptc_checkoutoperation
+  config:
+    name: Checkout Operation
+    template: checkoutoperation.json
+    skip: false
+  type:
+    api: custom-service-java

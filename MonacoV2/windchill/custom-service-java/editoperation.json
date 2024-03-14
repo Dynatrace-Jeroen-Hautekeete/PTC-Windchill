@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "com.ptc.core.components.forms.DefaultEditFormProcessor",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean",
+            "java.util.List"
+          ],
+          "methodName": "doOperation",
+          "modifiers": [],
+          "returnType": "com.ptc.core.components.forms.FormResult",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

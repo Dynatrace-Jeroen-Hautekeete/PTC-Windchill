@@ -1,0 +1,485 @@
+{
+  "dashboardMetadata": {
+    "dashboardFilter": null,
+    "hasConsistentColors": false,
+    "name": "{{.name}}",
+    "owner": "jeroen.hautekeete@dynatrace.com",
+    "preset": true,
+    "shared": true,
+    "tags": [
+      "PTC"
+    ],
+    "tilesNameSize": null
+  },
+  "tiles": [
+    {
+      "assignedEntities": [
+        "{{ .applicationweb__PTC__id }}",
+        "{{ .extractedIDs.id_GEOLOCATION_0000000000000000 }}",
+        "WORLD"
+      ],
+      "bounds": {
+        "height": 532,
+        "left": 0,
+        "top": 38,
+        "width": 760
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "metric": "APDEX",
+      "name": "World map",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": "Last 2 hours"
+      },
+      "tileType": "APPLICATION_WORLDMAP"
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 1102,
+        "top": 836,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Network metrics",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "NETWORK"
+    },
+    {
+      "bounds": {
+        "height": 152,
+        "left": 1102,
+        "top": 646,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Network status",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "NETWORK_MEDIUM"
+    },
+    {
+      "bounds": {
+        "height": 190,
+        "left": 380,
+        "top": 608,
+        "width": 190
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Service health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "SERVICES"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_SERVICE_DFC72BC4F17E07F4 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 798,
+        "top": 836,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Service or request",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "SERVICE_VERSATILE"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_SERVICE_9E7937A49699DC11 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 304,
+        "top": 836,
+        "width": 456
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Service or request",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "SERVICE_VERSATILE"
+    },
+    {
+      "bounds": {
+        "height": 190,
+        "left": 190,
+        "top": 608,
+        "width": 190
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Application health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "APPLICATIONS"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 1102,
+        "top": 304,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "User breakdown",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "USERS"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 0,
+        "top": 836,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Web application",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "APPLICATION"
+    },
+    {
+      "bounds": {
+        "height": 190,
+        "left": 570,
+        "top": 608,
+        "width": 190
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Database health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATABASES_OVERVIEW"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_SERVICE_E32B0539726A70A6 }}"
+      ],
+      "bounds": {
+        "height": 152,
+        "left": 798,
+        "top": 646,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Database performance",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATABASE"
+    },
+    {
+      "bounds": {
+        "height": 152,
+        "left": 1444,
+        "top": 342,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Smartscape",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "PURE_MODEL"
+    },
+    {
+      "bounds": {
+        "height": 190,
+        "left": 0,
+        "top": 608,
+        "width": 190
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Host health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "HOSTS"
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 798,
+        "top": 304,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "User behavior",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "SESSION_METRICS"
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 1444,
+        "top": 38,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "Top web applications",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "APPLICATIONS_MOST_ACTIVE"
+    },
+    {
+      "bounds": {
+        "height": 152,
+        "left": 1444,
+        "top": 836,
+        "width": 152
+      },
+      "configured": true,
+      "entitySelector": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Problems",
+      "nameSize": null,
+      "problemSelector": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "OPEN_PROBLEMS",
+      "useBackgroundColor": null
+    },
+    {
+      "assignedEntities": [
+        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+      ],
+      "bounds": {
+        "height": 304,
+        "left": 1444,
+        "top": 494,
+        "width": 304
+      },
+      "configured": true,
+      "isAutoRefreshDisabled": false,
+      "name": "JavaScript errors",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "UEM_JSERRORS_OVERALL"
+    },
+    {
+      "bounds": {
+        "height": 266,
+        "left": 798,
+        "top": 38,
+        "width": 608
+      },
+      "configured": true,
+      "customName": "Data explorer results",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=null\u0026(builtin:apps.web.actionCount.category:splitBy():sum:sort(value(sum,descending)):limit(20)):limit(100):names,(builtin:apps.other.uaCount.osAndApdex:splitBy():sum:sort(value(sum,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "User actions per minute",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": null,
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "builtin:apps.web.actionCount.category",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "SUM",
+          "splitBy": [],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        },
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": null,
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "B",
+          "limit": null,
+          "metric": "builtin:apps.other.uaCount.osAndApdex",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "SUM",
+          "splitBy": [],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": "AREA"
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": "AREA"
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": null,
+            "queryId": null,
+            "rules": [
+              {
+                "color": "#7dc540",
+                "value": null
+              },
+              {
+                "color": "#f5d30f",
+                "value": null
+              },
+              {
+                "color": "#dc172a",
+                "value": null
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "type": "GRAPH_CHART"
+      }
+    }
+  ]
+}

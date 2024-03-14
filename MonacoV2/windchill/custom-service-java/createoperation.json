@@ -1,0 +1,63 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "com.ptc.core.components.forms.CreateObjectFormProcessor",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean",
+            "java.util.List"
+          ],
+          "methodName": "doOperation",
+          "modifiers": [],
+          "returnType": "com.ptc.core.components.forms.FormResult",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "annotations": [],
+      "className": "com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeItemFormProcessor",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean",
+            "java.util.List"
+          ],
+          "methodName": "doOperation",
+          "modifiers": [],
+          "returnType": "com.ptc.core.components.forms.FormResult",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "annotations": [],
+      "className": "com.ptc.windchill.enterprise.doc.forms.CreateDocFormProcessor",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean",
+            "java.util.List"
+          ],
+          "methodName": "doOperation",
+          "modifiers": [],
+          "returnType": "com.ptc.core.components.forms.FormResult",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

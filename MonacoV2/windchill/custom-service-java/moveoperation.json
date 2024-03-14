@@ -1,0 +1,29 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "wt.dataops.containermove.StandardContainerMoveService",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTValuedMap",
+            "boolean",
+            "boolean",
+            "java.lang.String"
+          ],
+          "methodName": "moveImpl",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

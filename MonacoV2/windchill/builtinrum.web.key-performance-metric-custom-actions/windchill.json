@@ -1,0 +1,6 @@
+{
+  "thresholds": {
+    "toleratedThresholdSeconds": 3.0,
+    "frustratingThresholdSeconds": 12.0
+  }
+}

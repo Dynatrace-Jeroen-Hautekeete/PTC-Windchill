@@ -1,0 +1,16 @@
+manifestVersion: 1.0
+projects:
+  - name: windchill
+    path: windchill
+  - name: synthetic
+    path: synthetic
+
+environmentGroups:
+  - name: tenant-group
+    environments:
+      - name: tenant
+        url:
+          value: "https://<tenant>.live.dynatrace.com"
+        auth:
+          token:
+            name: "tenant_token"            

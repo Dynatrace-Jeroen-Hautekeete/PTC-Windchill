@@ -1,0 +1,536 @@
+{
+  "dashboardMetadata": {
+    "dashboardFilter": null,
+    "hasConsistentColors": false,
+    "name": "{{.name}}",
+    "owner": "jeroen.hautekeete@dynatrace.com",
+    "preset": true,
+    "shared": true,
+    "tags": [
+      "PTC"
+    ],
+    "tilesNameSize": null
+  },
+  "tiles": [
+    {
+      "bounds": {
+        "height": 304,
+        "left": 0,
+        "top": 0,
+        "width": 304
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Service health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "SERVICES"
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 304,
+        "top": 0,
+        "width": 304
+      },
+      "chartVisible": true,
+      "configured": true,
+      "filterConfig": null,
+      "isAutoRefreshDisabled": false,
+      "name": "Application health",
+      "nameSize": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "APPLICATIONS"
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 608,
+        "top": 0,
+        "width": 608
+      },
+      "configured": true,
+      "customName": "Server side response time",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=null\u0026(builtin:service.keyRequest.response.server:splitBy():avg:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "Server side response time",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": {
+            "criteria": [],
+            "entityAttribute": null,
+            "filter": null,
+            "filterOperator": "AND",
+            "filterType": null,
+            "globalEntity": null,
+            "nestedFilters": [],
+            "relationship": null
+          },
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "builtin:service.keyRequest.response.server",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "AVG",
+          "splitBy": [],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "alias": null,
+              "color": null,
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": null
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [],
+        "type": "GRAPH_CHART"
+      }
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 0,
+        "top": 304,
+        "width": 608
+      },
+      "configured": true,
+      "customName": "JVM heap memory pool committed bytes",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=null\u0026(builtin:tech.jvm.memory.pool.committed:splitBy(poolname):avg:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "JVM heap memory pool committed bytes",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": {
+            "criteria": [],
+            "entityAttribute": null,
+            "filter": null,
+            "filterOperator": "AND",
+            "filterType": null,
+            "globalEntity": null,
+            "nestedFilters": [],
+            "relationship": null
+          },
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "builtin:tech.jvm.memory.pool.committed",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "AVG",
+          "splitBy": [
+            "poolname"
+          ],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": null
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": null,
+            "queryId": null,
+            "rules": [
+              {
+                "color": "#7dc540",
+                "value": null
+              },
+              {
+                "color": "#f5d30f",
+                "value": null
+              },
+              {
+                "color": "#dc172a",
+                "value": null
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "type": "GRAPH_CHART"
+      }
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 608,
+        "top": 304,
+        "width": 608
+      },
+      "configured": true,
+      "customName": "JVM runtime total memory",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=null\u0026(builtin:tech.jvm.memory.runtime.total:splitBy(\"dt.entity.process_group_instance\"):avg:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "JVM runtime total memory",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": {
+            "criteria": [],
+            "entityAttribute": null,
+            "filter": null,
+            "filterOperator": "AND",
+            "filterType": null,
+            "globalEntity": null,
+            "nestedFilters": [],
+            "relationship": null
+          },
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "builtin:tech.jvm.memory.runtime.total",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "AVG",
+          "splitBy": [
+            "dt.entity.process_group_instance"
+          ],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": null
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": null,
+            "queryId": null,
+            "rules": [
+              {
+                "color": "#7dc540",
+                "value": null
+              },
+              {
+                "color": "#f5d30f",
+                "value": null
+              },
+              {
+                "color": "#dc172a",
+                "value": null
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "type": "GRAPH_CHART"
+      }
+    },
+    {
+      "bounds": {
+        "height": 304,
+        "left": 0,
+        "top": 608,
+        "width": 1216
+      },
+      "configured": true,
+      "customName": "Exception Count",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=null\u0026({{.calculatedmetricsservice__calcserviceexceptioncount__id}}:splitBy():avg:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "Exception Count",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": {
+            "criteria": [],
+            "entityAttribute": null,
+            "filter": null,
+            "filterOperator": "AND",
+            "filterType": null,
+            "globalEntity": null,
+            "nestedFilters": [],
+            "relationship": null
+          },
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "{{.calculatedmetricsservice__calcserviceexceptioncount__id}}",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "AVG",
+          "splitBy": [],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": null
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "columnId": null,
+            "queryId": null,
+            "rules": [
+              {
+                "color": "#7dc540",
+                "value": null
+              },
+              {
+                "color": "#f5d30f",
+                "value": null
+              },
+              {
+                "color": "#dc172a",
+                "value": null
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "type": "GRAPH_CHART"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "com.ptc.netmarkets.util.beans.NmLoginBean",
+      "enabled": true,
+      "fileName": "",
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [],
+          "methodName": "getRemoteUser",
+          "modifiers": [],
+          "returnType": "java.lang.String",
+          "visibility": null
+        },
+        {
+          "methodName": "\u003cinit\u003e",
+          "modifiers": [],
+          "returnType": "void",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

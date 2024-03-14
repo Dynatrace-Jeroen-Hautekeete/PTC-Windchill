@@ -1,0 +1,10 @@
+{
+  "rum": {
+    "enabled": true,
+    "costAndTrafficControl": 100
+  },
+  "sessionReplay": {
+    "enabled": false,
+    "costAndTrafficControl": 100
+  }
+}

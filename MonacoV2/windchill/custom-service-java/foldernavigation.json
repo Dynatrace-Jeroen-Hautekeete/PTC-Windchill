@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "com.ptc.windchill.enterprise.folder.mvc.builders.FolderTableBuilder",
+      "enabled": true,
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.mvc.components.ComponentParams"
+          ],
+          "methodName": "buildComponentConfig",
+          "modifiers": [],
+          "returnType": "com.ptc.mvc.components.ComponentConfig",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

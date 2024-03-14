@@ -1,0 +1,15 @@
+configs:
+- id: calc:service.actionnamebyuser
+  config:
+    name: ActionNameByUser
+    template: calcservice.actionnamebyuser.json
+    skip: false
+  type:
+    api: calculated-metrics-service
+- id: calc:service.exceptioncount
+  config:
+    name: Exception Count
+    template: calcservice.exceptioncount.json
+    skip: false
+  type:
+    api: calculated-metrics-service

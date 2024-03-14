@@ -1,0 +1,16 @@
+configs:
+- id: PTC
+  config:
+    parameters:
+      applicationweb__PTC__id:
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference
+    template: windchill.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:rum.web.app-detection
+      schemaVersion: 2.1.1    
+      scope: environment

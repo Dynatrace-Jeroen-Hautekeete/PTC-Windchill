@@ -1,0 +1,373 @@
+{
+  "conversionGoals": [],
+  "costControlUserSessionPercentage": 100,
+  "customActionApdexSettings": {
+    "frustratingFallbackThreshold": 12000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 3000,
+    "toleratedThreshold": 3000
+  },
+  "loadActionApdexSettings": {
+    "frustratingFallbackThreshold": 12000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 3000,
+    "toleratedThreshold": 3000
+  },
+  "loadActionKeyPerformanceMetric": "VISUALLY_COMPLETE",
+  "metaDataCaptureSettings": [
+    {
+      "capturingName": "PTC.navigation.GLOBAL_USER",
+      "name": "VisitTag0",
+      "publicMetadata": false,
+      "type": "JAVA_SCRIPT_VARIABLE",
+      "uniqueId": 1,
+      "useLastValue": false
+    },
+    {
+      "capturingName": "#infoPageIdentityObjectIdentifier",
+      "name": "PageIdentity",
+      "publicMetadata": false,
+      "type": "CSS_SELECTOR",
+      "uniqueId": 2,
+      "useLastValue": false
+    }
+  ],
+  "monitoringSettings": {
+    "addCrossOriginAnonymousAttribute": true,
+    "advancedJavaScriptTagSettings": {
+      "additionalEventHandlers": {
+        "blurEventHandler": false,
+        "changeEventHandler": false,
+        "clickEventHandler": false,
+        "maxDomNodesToInstrument": 5000,
+        "mouseupEventHandler": false,
+        "toStringMethod": false,
+        "userMouseupEventForClicks": false
+      },
+      "eventWrapperSettings": {
+        "blur": false,
+        "change": false,
+        "click": false,
+        "mouseUp": false,
+        "touchEnd": false,
+        "touchStart": false
+      },
+      "globalEventCaptureSettings": {
+        "additionalEventCapturedAsUserInput": "",
+        "change": true,
+        "click": true,
+        "doubleClick": true,
+        "keyDown": true,
+        "keyUp": true,
+        "mouseDown": true,
+        "mouseUp": true,
+        "scroll": true,
+        "touchEnd": true,
+        "touchStart": true
+      },
+      "instrumentUnsupportedAjaxFrameworks": false,
+      "maxActionNameLength": 100,
+      "maxErrorsToCapture": 10,
+      "proxyWrapperEnabled": true,
+      "specialCharactersToEscape": "",
+      "syncBeaconFirefox": false,
+      "syncBeaconInternetExplorer": false,
+      "userActionNameAttribute": null
+    },
+    "browserRestrictionSettings": {
+      "browserRestrictions": [],
+      "mode": "EXCLUDE"
+    },
+    "cacheControlHeaderOptimizations": true,
+    "contentCapture": {
+      "javaScriptErrors": true,
+      "resourceTimingSettings": {
+        "nonW3cResourceTimings": false,
+        "nonW3cResourceTimingsInstrumentationDelay": 50,
+        "resourceTimingCaptureType": null,
+        "resourceTimingsDomainLimit": null,
+        "w3cResourceTimings": true
+      },
+      "timeoutSettings": {
+        "temporaryActionLimit": 0,
+        "temporaryActionTotalTimeout": 100,
+        "timedActionSupport": false
+      },
+      "visuallyComplete2Settings": {
+        "excludeUrlRegex": "",
+        "ignoredMutationsList": "",
+        "inactivityTimeout": 1000,
+        "mutationTimeout": 50,
+        "threshold": 50
+      },
+      "visuallyCompleteAndSpeedIndex": true
+    },
+    "cookiePlacementDomain": null,
+    "correlationHeaderInclusionRegex": "",
+    "customConfigurationProperties": "",
+    "excludeXhrRegex": "",
+    "fetchRequests": false,
+    "injectionMode": "JAVASCRIPT_TAG",
+    "instrumentedWebServer": null,
+    "ipAddressRestrictionSettings": {
+      "ipAddressRestrictions": [],
+      "mode": "EXCLUDE"
+    },
+    "javaScriptFrameworkSupport": {
+      "activeXObject": false,
+      "angular": true,
+      "dojo": false,
+      "extJS": true,
+      "icefaces": false,
+      "jQuery": true,
+      "mooTools": false,
+      "prototype": true
+    },
+    "libraryFileLocation": "",
+    "monitoringDataPath": "",
+    "sameSiteCookieAttribute": null,
+    "scriptTagCacheDurationInHours": 1,
+    "secureCookieAttribute": false,
+    "serverRequestPathId": "",
+    "xmlHttpRequest": false
+  },
+  "name": "{{.name}}",
+  "realUserMonitoringEnabled": true,
+  "sessionReplayConfig": {
+    "costControlPercentage": 100,
+    "cssResourceCapturingExclusionRules": [],
+    "enableCssResourceCapturing": true,
+    "enabled": false
+  },
+  "type": "AUTO_INJECTED",
+  "userActionAndSessionProperties": [],
+  "userActionNamingSettings": {
+    "customActionNamingRules": [],
+    "ignoreCase": true,
+    "loadActionNamingRules": [
+      {
+        "conditions": [
+          {
+            "operand1": "{pageUrlPath (default)}",
+            "operand2": "/windchill/app/",
+            "operator": "CONTAINS"
+          }
+        ],
+        "template": "loading of page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [],
+        "template": "loading of page {TrailingURLWhiteSpace}",
+        "useOrConditions": false
+      }
+    ],
+    "placeholders": [
+      {
+        "input": "PAGE_URL",
+        "metadataId": null,
+        "name": "TrailingURL",
+        "processingPart": "ALL",
+        "processingSteps": [
+          {
+            "fallbackToInput": false,
+            "patternAfter": "?",
+            "patternAfterSearchType": "LAST",
+            "patternBefore": "/Windchill/app/#ptc1",
+            "patternBeforeSearchType": "FIRST",
+            "patternToReplace": null,
+            "regularExpression": null,
+            "replacement": null,
+            "type": "SUBSTRING"
+          }
+        ],
+        "useGuessedElementIdentifier": false
+      },
+      {
+        "input": "METADATA",
+        "metadataId": 2,
+        "name": "PageIdentity",
+        "processingPart": "ALL",
+        "processingSteps": [],
+        "useGuessedElementIdentifier": false
+      },
+      {
+        "input": "PAGE_URL",
+        "metadataId": null,
+        "name": "TrailingURLWhiteSpace",
+        "processingPart": "ALL",
+        "processingSteps": [
+          {
+            "fallbackToInput": false,
+            "patternAfter": "",
+            "patternAfterSearchType": "LAST",
+            "patternBefore": "/Windchill/app/#ptc1",
+            "patternBeforeSearchType": "FIRST",
+            "patternToReplace": null,
+            "regularExpression": null,
+            "replacement": null,
+            "type": "SUBSTRING"
+          }
+        ],
+        "useGuessedElementIdentifier": false
+      }
+    ],
+    "queryParameterCleanups": [
+      "cfid",
+      "phpsessid",
+      "__sid",
+      "cftoken",
+      "sid"
+    ],
+    "splitUserActionsByDomain": true,
+    "useFirstDetectedLoadAction": true,
+    "xhrActionNamingRules": [
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/netmarkets/jsp/search/validateSearch.jsp",
+            "operator": "EQUALS"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"search\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/ptc1/tgt/distributionList",
+            "operator": "CONTAINS"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"related objects\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/servlet/GetCacheDescriptorServlet",
+            "operator": "CONTAINS"
+          }
+        ],
+        "template": "upload document on page {pageUrlPath (default)}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "getOpenInCreoViewServiceCustomURI",
+            "operator": "CONTAINS"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"open representation in creo view\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{pageUrlAnchor (default)}",
+            "operand2": "ptc1/tcomp/infoPage",
+            "operator": "CONTAINS"
+          },
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/ptc1/WTProperties/",
+            "operator": "EQUALS"
+          },
+          {
+            "operand1": "{elementIdentifier (default)}",
+            "operand2": "[a-zA-Z\\s]*",
+            "operator": "NOT_MATCHES_REGULAR_EXPRESSION"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"[object details]\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/ptc1/tcomp/infoPage",
+            "operator": "STARTS_WITH"
+          },
+          {
+            "operand1": "{TrailingURL}",
+            "operand2": null,
+            "operator": "IS_NOT_EMPTY"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"[Object Details]\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "/Windchill/netmarkets/jsp/search/search.jsp",
+            "operator": "STARTS_WITH"
+          },
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "wt.query.SearchHistory",
+            "operator": "CONTAINS"
+          },
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": "fireSearch=true",
+            "operator": "CONTAINS"
+          },
+          {
+            "operand1": "{TrailingURL}",
+            "operand2": null,
+            "operator": "IS_NOT_EMPTY"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"[Saved Search]\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [
+          {
+            "operand1": "{TrailingURL}",
+            "operand2": null,
+            "operator": "IS_NOT_EMPTY"
+          }
+        ],
+        "template": "{userInteraction (default)} on \"{elementIdentifier (default)}\" on page {TrailingURL}",
+        "useOrConditions": false
+      },
+      {
+        "conditions": [],
+        "template": "{userInteraction (default)} on \"{elementIdentifier (default)}\" on page {pageUrlPath (default)}",
+        "useOrConditions": false
+      }
+    ]
+  },
+  "userTags": [
+    {
+      "ignoreCase": false,
+      "metadataId": 1,
+      "uniqueId": 1
+    }
+  ],
+  "waterfallSettings": {
+    "resourceBrowserCachingThreshold": 50,
+    "resourcesThreshold": 100000,
+    "slowCdnResourcesThreshold": 200000,
+    "slowFirstPartyResourcesThreshold": 200000,
+    "slowThirdPartyResourcesThreshold": 200000,
+    "speedIndexVisuallyCompleteRatioThreshold": 50,
+    "uncompressedResourcesThreshold": 860
+  },
+  "xhrActionApdexSettings": {
+    "frustratingFallbackThreshold": 12000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 3000,
+    "toleratedThreshold": 3000
+  },
+  "xhrActionKeyPerformanceMetric": "VISUALLY_COMPLETE"
+}

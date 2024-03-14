@@ -1,0 +1,37 @@
+configs:
+- id: BackgroundMethodServer
+  config:
+    template: backgroundmethodserver.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:tags.auto-tagging
+      schemaVersion: 1.0.13
+      scope: environment
+- id: DirectoryServer
+  config:
+    template: directoryserver.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:tags.auto-tagging
+      schemaVersion: 1.0.13
+      scope: environment
+- id: MethodServer
+  config:
+    template: methodserver.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:tags.auto-tagging
+      schemaVersion: 1.0.13
+      scope: environment
+- id: ServerManager
+  config:
+    template: servermanager.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:tags.auto-tagging
+      schemaVersion: 1.0.13
+      scope: environment

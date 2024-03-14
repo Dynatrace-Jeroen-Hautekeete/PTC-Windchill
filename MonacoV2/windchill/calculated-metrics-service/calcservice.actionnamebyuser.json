@@ -1,0 +1,54 @@
+{
+  "conditions": [
+    {
+      "attribute": "SERVICE_REQUEST_ATTRIBUTE",
+      "comparisonInfo": {
+        "caseSensitive": false,
+        "comparison": "EXISTS",
+        "matchOnChildCalls": false,
+        "negate": false,
+        "requestAttribute": "GetRemoteUser",
+        "source": null,
+        "type": "STRING_REQUEST_ATTRIBUTE",
+        "value": null,
+        "values": null
+      }
+    },
+    {
+      "attribute": "SERVICE_REQUEST_ATTRIBUTE",
+      "comparisonInfo": {
+        "caseSensitive": false,
+        "comparison": "EXISTS",
+        "matchOnChildCalls": false,
+        "negate": false,
+        "requestAttribute": "ActionName",
+        "source": null,
+        "type": "STRING_REQUEST_ATTRIBUTE",
+        "value": null,
+        "values": null
+      }
+    }
+  ],
+  "dimensionDefinition": {
+    "dimension": "{RequestAttribute:ActionName} By {RequestAttribute:GetRemoteUser}",
+    "name": "Dimension",
+    "placeholders": [],
+    "topX": 50,
+    "topXAggregation": "AVERAGE",
+    "topXDirection": "DESCENDING"
+  },
+  "enabled": true,
+  "entityId": null,
+  "ignoreMutedRequests": false,
+  "managementZones": [
+    "PTC"
+  ],
+  "metricDefinition": {
+    "metric": "RESPONSE_TIME",
+    "requestAttribute": null
+  },
+  "name": "{{.name}}",
+  "tsmMetricKey": "calc:service.actionnamebyuser",
+  "unit": "MICRO_SECOND",
+  "unitDisplayName": null
+}

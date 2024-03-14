@@ -1,0 +1,130 @@
+{
+  "dashboardMetadata": {
+    "dashboardFilter": null,
+    "hasConsistentColors": false,
+    "name": "{{.name}}",
+    "owner": "jeroen.hautekeete@dynatrace.com",
+    "preset": true,
+    "shared": true,
+    "tags": [
+      "PTC"
+    ],
+    "tilesNameSize": null
+  },
+  "tiles": [
+    {
+      "bounds": {
+        "height": 570,
+        "left": 0,
+        "top": 38,
+        "width": 950
+      },
+      "configured": true,
+      "customName": "ActionNameByUser",
+      "isAutoRefreshDisabled": false,
+      "metricExpressions": [
+        "resolution=Inf\u0026({{.calculatedmetricsservice__calcserviceactionnamebyuser__id}}:splitBy(Dimension):avg:sort(value(avg,descending)):limit(20)):limit(100):names"
+      ],
+      "name": "ActionNameByUser",
+      "nameSize": null,
+      "queries": [
+        {
+          "defaultValue": null,
+          "enabled": true,
+          "filterBy": {
+            "criteria": [],
+            "entityAttribute": null,
+            "filter": null,
+            "filterOperator": "AND",
+            "filterType": null,
+            "globalEntity": null,
+            "nestedFilters": [],
+            "relationship": null
+          },
+          "foldTransformation": null,
+          "generatedMetricSelector": null,
+          "id": "A",
+          "limit": null,
+          "metric": "{{.calculatedmetricsservice__calcserviceactionnamebyuser__id}}",
+          "metricSelector": null,
+          "rate": "NONE",
+          "sortBy": null,
+          "sortByDimension": null,
+          "spaceAggregation": "AVG",
+          "splitBy": [
+            "Dimension"
+          ],
+          "timeAggregation": "DEFAULT",
+          "timeShift": null
+        }
+      ],
+      "queriesSettings": null,
+      "tileFilter": {
+        "managementZone": null,
+        "timeframe": null
+      },
+      "tileType": "DATA_EXPLORER",
+      "visualConfig": {
+        "axes": {
+          "xAxis": {
+            "displayName": null,
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "global": {
+          "hasTrendline": null,
+          "hideLegend": null,
+          "seriesType": null,
+          "theme": null,
+          "threshold": null
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "heatmapSettings": {
+          "showLabels": null,
+          "xAxisBuckets": null,
+          "yAxis": "VALUE",
+          "yAxisBuckets": null
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLabels": false,
+          "showLegend": true
+        },
+        "rules": [
+          {
+            "matcher": "A",
+            "properties": {
+              "alias": null,
+              "color": null,
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          },
+          {
+            "matcher": "A:",
+            "properties": {
+              "alias": null,
+              "color": "DEFAULT",
+              "seriesType": null
+            },
+            "seriesOverrides": [],
+            "unitTransform": null,
+            "valueFormat": null
+          }
+        ],
+        "singleValueSettings": null,
+        "tableSettings": {
+          "hiddenColumns": [],
+          "isThresholdBackgroundAppliedToCell": null
+        },
+        "thresholds": [],
+        "type": "TOP_LIST"
+      }
+    }
+  ]
+}

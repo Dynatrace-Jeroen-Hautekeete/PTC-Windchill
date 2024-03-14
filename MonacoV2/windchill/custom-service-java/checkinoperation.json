@@ -1,0 +1,239 @@
+{
+  "enabled": true,
+  "name": "{{.name}}",
+  "processGroups": [],
+  "queueEntryPoint": false,
+  "queueEntryPointType": null,
+  "rules": [
+    {
+      "annotations": [],
+      "className": "wt.epm.workspaces.EPMStandardWorkspaceManager",
+      "enabled": true,
+      "fileName": "",
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.epm.EPMGhostResolverBase$EPMGhostResolverDelegate",
+            "wt.fc.collections.WTCollection",
+            "wt.fc.collections.WTCollection",
+            "wt.build.BuildResolverDelegate[]"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.epm.EPMGhostResolverBase$EPMGhostResolverDelegate"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.fc.collections.WTCollection"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.epm.EPMGhostResolverBase$EPMGhostResolverDelegate",
+            "wt.fc.collections.WTCollection"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.fc.collections.WTCollection",
+            "wt.fc.collections.WTCollection"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.epm.workspaces.EPMWorkspace",
+            "wt.fc.collections.WTKeyedMap",
+            "wt.epm.EPMGhostResolverBase$EPMGhostResolverDelegate",
+            "wt.fc.collections.WTCollection",
+            "wt.fc.collections.WTCollection"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTSet",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "annotations": [],
+      "className": "com.ptc.windchill.enterprise.wip.CheckinObjectFormProcessor",
+      "enabled": true,
+      "fileName": "",
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "com.ptc.netmarkets.util.beans.NmCommandBean",
+            "java.util.List"
+          ],
+          "methodName": "doOperation",
+          "modifiers": [],
+          "returnType": "com.ptc.core.components.forms.FormResult",
+          "visibility": null
+        }
+      ]
+    },
+    {
+      "annotations": [],
+      "className": "wt.vc.wip.StandardWorkInProgressService",
+      "enabled": true,
+      "fileName": "",
+      "matcher": "EQUALS",
+      "methodRules": [
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTKeyedMap"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.vc.wip.Workable",
+            "java.lang.String"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.vc.wip.Workable",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTKeyedMap",
+            "wt.folder.Folder"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTCollection",
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.vc.wip.Workable",
+            "java.lang.String",
+            "boolean"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.vc.wip.Workable",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTKeyedMap",
+            "boolean"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTCollection",
+            "java.lang.String"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTCollection"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "void",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTKeyedMap",
+            "wt.fc.collections.WTValuedMap"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.WTObject"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "void",
+          "visibility": null
+        },
+        {
+          "argumentTypes": [
+            "wt.fc.collections.WTCollection",
+            "java.lang.String",
+            "wt.folder.Folder"
+          ],
+          "methodName": "checkin",
+          "modifiers": [],
+          "returnType": "wt.fc.collections.WTCollection",
+          "visibility": null
+        }
+      ]
+    }
+  ]
+}

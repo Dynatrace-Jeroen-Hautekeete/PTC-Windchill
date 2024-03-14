@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "attribute": "EXCEPTION_CLASS",
+      "comparisonInfo": {
+        "caseSensitive": false,
+        "comparison": "EXISTS",
+        "negate": false,
+        "type": "STRING",
+        "value": null,
+        "values": null
+      }
+    }
+  ],
+  "dimensionDefinition": {
+    "dimension": "{Exception:Class}",
+    "name": "Dimension",
+    "placeholders": [],
+    "topX": 100,
+    "topXAggregation": "SUM",
+    "topXDirection": "DESCENDING"
+  },
+  "enabled": true,
+  "entityId": null,
+  "ignoreMutedRequests": false,
+  "managementZones": [
+    "PTC"
+  ],
+  "metricDefinition": {
+    "metric": "EXCEPTION_COUNT",
+    "requestAttribute": null
+  },
+  "name": "{{.name}}",
+  "tsmMetricKey": "calc:service.exceptioncount",
+  "unit": "COUNT",
+  "unitDisplayName": null
+}

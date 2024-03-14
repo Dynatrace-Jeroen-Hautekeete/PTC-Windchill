@@ -1,0 +1,24 @@
+{
+  "name": "MethodServer",
+  "rules": [
+    {
+      "enabled": true,
+      "valueNormalization": "Leave text as-is",
+      "type": "ME",
+      "attributeRule": {
+        "entityType": "PROCESS_GROUP",
+        "conditions": [
+          {
+            "key": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "JAVA_MAIN_CLASS",
+            "operator": "CONTAINS",
+            "stringValue": "MethodServerMain",
+            "caseSensitive": false
+          }
+        ],
+        "pgToHostPropagation": false,
+        "pgToServicePropagation": false
+      }
+    }
+  ]
+}

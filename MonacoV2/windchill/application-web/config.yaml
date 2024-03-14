@@ -1,0 +1,8 @@
+configs:
+- id: PTC
+  config:
+    name: PTC Windchill
+    template: windchill.json
+    skip: false
+  type:
+    api: application-web

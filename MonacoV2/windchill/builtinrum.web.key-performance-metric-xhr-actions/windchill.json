@@ -1,0 +1,11 @@
+{
+  "kpm": "VISUALLY_COMPLETE",
+  "thresholds": {
+    "toleratedThresholdSeconds": 3.0,
+    "frustratingThresholdSeconds": 12.0
+  },
+  "fallbackThresholds": {
+    "toleratedFallbackThresholdSeconds": 3.0,
+    "frustratingFallbackThresholdSeconds": 12.0
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "matcher": "URL_CONTAINS",
+  "pattern": "Windchill",
+  "applicationId": "{{.applicationweb__PTC__id}}"
+}

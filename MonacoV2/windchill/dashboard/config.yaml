@@ -1,0 +1,111 @@
+configs:
+- id: d100-cachedashboard
+  config:
+    name: D100 - Cache Dashboard
+    template: d100-cachedashboard.json
+    skip: false
+  type:
+    api: dashboard
+- id: d202-workspaceoperations
+  config:
+    name: D202 - Workspace Operations
+    parameters:
+      calculatedmetricsservice__calcserviceactionnamebyuser__id:
+        configId: calc:service.actionnamebyuser
+        configType: calculated-metrics-service
+        property: id
+        type: reference
+    template: d202-workspaceoperations.json
+    skip: false
+  type:
+    api: dashboard
+- id: m101-msstatus
+  config:
+    name: M101 - MS Status
+    template: m101-msstatus.json
+    skip: false
+  type:
+    api: dashboard
+- id: m103-smstatus
+  config:
+    name: M103 - SM Status
+    template: m103-smstatus.json
+    skip: false
+  type:
+    api: dashboard
+- id: m105-processqueues
+  config:
+    name: M105 - Process Queues
+    template: m105-processqueues.json
+    skip: false
+  type:
+    api: dashboard
+- id: m106-publishqueues
+  config:
+    name: M106 - Publish Queues
+    template: m106-publishqueues.json
+    skip: false
+  type:
+    api: dashboard
+- id: m107-schedulequeues
+  config:
+    name: M107 - Schedule Queues
+    template: m107-schedulequeues.json
+    skip: false
+  type:
+    api: dashboard
+- id: m108-windchillapplicationoverview
+  config:
+    name: M108 - Windchill Application Overview
+    parameters:
+      calculatedmetricsservice__calcserviceexceptioncount__id:
+        configId: calc:service.exceptioncount
+        configType: calculated-metrics-service
+        property: id
+        type: reference
+    template: m108-windchillapplicationoverview.json
+    skip: false
+  type:
+    api: dashboard
+- id: m109-hosthealth
+  config:
+    name: M109 - HOST Health
+    template: m109-hosthealth.json
+    skip: false
+  type:
+    api: dashboard
+- id: m200-jvmhealth
+  config:
+    name: M200 - JVM Health
+    template: m200-jvmhealth.json
+    skip: false
+  type:
+    api: dashboard
+- id: m201-hostwindchillmonitoring
+  config:
+    name: M201 - HOST Windchill Monitoring
+    parameters:
+      extractedIDs:
+        type: value
+        value:
+          id_APPLICATION_681D2E7F8A1E0E96: APPLICATION-681D2E7F8A1E0E96
+          id_GEOLOCATION_0000000000000000: GEOLOCATION-0000000000000000
+          id_SERVICE_9E7937A49699DC11: SERVICE-9E7937A49699DC11
+          id_SERVICE_DFC72BC4F17E07F4: SERVICE-DFC72BC4F17E07F4
+          id_SERVICE_E32B0539726A70A6: SERVICE-E32B0539726A70A6
+      applicationweb__PTC__id:
+        configId: PTC
+        configType: application-web
+        property: id
+        type: reference          
+    template: m201-hostwindchillmonitoring.json
+    skip: false
+  type:
+    api: dashboard
+- id: ptcwindchilloperations
+  config:
+    name: PTC Windchill - Operations
+    template: ptcwindchilloperations.json
+    skip: false
+  type:
+    api: dashboard

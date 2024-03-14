@@ -1,0 +1,57 @@
+{
+  "aggregation": "FIRST",
+  "confidential": false,
+  "dataSources": [
+    {
+      "enabled": true,
+      "methods": [
+        {
+          "argumentIndex": 0,
+          "capture": "ARGUMENT",
+          "method": {
+            "argumentTypes": [],
+            "className": "wt.servlet.HttpServletRequestWrapper",
+            "methodName": "getRemoteUser",
+            "modifiers": [],
+            "returnType": "java.lang.String",
+            "visibility": "PUBLIC"
+          }
+        }
+      ],
+      "source": "METHOD_PARAM",
+      "technology": "JAVA",
+      "valueProcessing": {
+        "splitAt": "",
+        "trim": false
+      }
+    },
+    {
+      "enabled": true,
+      "methods": [
+        {
+          "argumentIndex": 0,
+          "capture": "ARGUMENT",
+          "method": {
+            "argumentTypes": [],
+            "className": "com.ptc.netmarkets.util.beans.NmLoginBean",
+            "methodName": "getRemoteUser",
+            "modifiers": [],
+            "returnType": "java.lang.String",
+            "visibility": "PUBLIC"
+          }
+        }
+      ],
+      "source": "METHOD_PARAM",
+      "technology": "JAVA",
+      "valueProcessing": {
+        "splitAt": "",
+        "trim": false
+      }
+    }
+  ],
+  "dataType": "STRING",
+  "enabled": true,
+  "name": "{{.name}}",
+  "normalization": "ORIGINAL",
+  "skipPersonalDataMasking": true
+}
