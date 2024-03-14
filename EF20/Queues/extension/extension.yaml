@@ -1,0 +1,96 @@
+name: custom:com.ptc.jmx.queues
+version: 2.0.0
+minDynatraceVersion: 1.275.0
+author:
+  name: Jeroen Hautekeete
+jmx:
+  groups:
+    - group: jmx
+      subgroups:
+        - subgroup: com.ptc:Name=*,wt.monitorType=Queues,wt.subsystem=Monitors,*
+          query: com.ptc:Name=*,wt.monitorType=Queues,wt.subsystem=Monitors,*
+          metrics:
+            - key: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds
+              value: attribute:MaxEntryExecTimeSeconds
+              type: gauge
+            - key: com.ptc.jmx.queues.metric_TotalEntries
+              value: attribute:TotalEntries
+              type: gauge
+            - key: com.ptc.jmx.queues.metric_WaitingReadyEntries
+              value: attribute:WaitingReadyEntries
+              type: gauge
+          dimensions:
+            - key: name
+              value: property:Name
+screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: METRIC_TABLE
+        key: metrictable-jmx-ptc_queues
+        conditions:
+          - metricAvailable|metric=dsfm:extension.status:filter(and(eq("dt.extension.name","custom:com.ptc.jmx.queues"),in("dt.entity.host",
+            entitySelector("entityId($(entityId))"))))|lastWrittenWithinDays=5
+    metricTableCards:
+      - key: metrictable-jmx-ptc_queues
+        displayName: PTC Queues (com.ptc.jmx.queues)
+        pageSize: 5
+        numberOfVisibleCharts: 3
+        hideEmptyCharts: true
+        displayCharts: true
+        enableDetailsExpandability: true
+        charts:
+          - displayName: Max Entry ExecTime Seconds
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Max Entry ExecTime Seconds
+          - displayName: Total Entries
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_TotalEntries:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_TotalEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_TotalEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Total Entries
+          - displayName: WaitingReady Entries
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_WaitingReadyEntries:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_WaitingReadyEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_WaitingReadyEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: WaitingReady Entries
+metrics:
+  - key: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds
+    metadata:
+      displayName: PTC Max Entry ExecTime Seconds
+      description: PTC Max Entry ExecTime Seconds
+      unit: Second
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.queues.metric_TotalEntries
+    metadata:
+      displayName: PTC Total Entries
+      description: PTC Total Entries
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.queues.metric_WaitingReadyEntries
+    metadata:
+      displayName: PTC WaitingReady Entries
+      description: PTC WaitingReady Entries
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX

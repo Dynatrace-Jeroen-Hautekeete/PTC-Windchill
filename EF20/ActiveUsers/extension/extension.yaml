@@ -1,0 +1,72 @@
+name: custom:com.ptc.jmx.activeusers
+version: 2.0.0
+minDynatraceVersion: 1.275.0
+author:
+  name: Jeroen Hautekeete
+jmx:
+  groups:
+    - group: jmx
+      subgroups:
+        - subgroup: com.ptc:Name=ActiveUsers,wt.subsystem=Monitors,*
+          query: com.ptc:Name=ActiveUsers,wt.subsystem=Monitors,*
+          metrics:
+            - key: com.ptc.jmx.activeusers.metric_ActiveUserCount
+              value: attribute:ActiveUserCount
+              type: gauge
+            - key: com.ptc.jmx.activeusers.metric_TotalActiveUserCount
+              value: attribute:TotalActiveUserCount
+              type: gauge
+screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: METRIC_TABLE
+        key: metrictable-jmx-ptc_activeusers
+        conditions:
+          - metricAvailable|metric=dsfm:extension.status:filter(and(eq("dt.extension.name","custom:com.ptc.jmx.activeusers"),in("dt.entity.host",
+            entitySelector("entityId($(entityId))"))))|lastWrittenWithinDays=5
+    metricTableCards:
+      - key: metrictable-jmx-ptc_activeusers
+        displayName: PTC Active users (com.ptc.jmx.activeusers)
+        pageSize: 5
+        numberOfVisibleCharts: 2
+        hideEmptyCharts: true
+        displayCharts: true
+        enableDetailsExpandability: true
+        charts:
+          - displayName: Active User Count
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.activeusers.metric_ActiveUserCount:splitBy()
+                  metricSelectorSort: com.ptc.jmx.activeusers.metric_ActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.activeusers.metric_ActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Active User Count
+          - displayName: Total Active User Count
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: jmx.activeusers.metric_TotalActiveUserCount:splitBy()
+                  metricSelectorSort: jmx.activeusers.metric_TotalActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: jmx.activeusers.metric_TotalActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Total Active User Count
+metrics:
+  - key: com.ptc.jmx.activeusers.metric_ActiveUserCount
+    metadata:
+      displayName: PTC Active User Count
+      description: PTC Active User Count
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.activeusers.metric_TotalActiveUserCount
+    metadata:
+      displayName: PTC Total Active User Count
+      description: PTC Total Active User Count
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
