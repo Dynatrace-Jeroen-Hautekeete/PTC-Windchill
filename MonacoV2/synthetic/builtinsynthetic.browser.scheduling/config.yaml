@@ -3,10 +3,9 @@ configs:
   config:
     parameters:
       syntheticlocation__PTC_PRIVATE_LOCATION__id:
-        configId: PTC_PRIVATE_LOCATION
-        configType: synthetic-location
-        property: id
-        type: reference
+        type: environment
+        name: tenant_private_location
+        default: "SYNTHETIC_LOCATION-ABCDEFGHIJKLMNOP"
     template: scheduling.json
     skip: false
   type:
@@ -22,10 +21,9 @@ configs:
   config:
     parameters:
       syntheticlocation__PTC_PRIVATE_LOCATION__id:
-        configId: PTC_PRIVATE_LOCATION
-        configType: synthetic-location
-        property: id
-        type: reference
+        type: environment
+        name: tenant_private_location
+        default: "SYNTHETIC_LOCATION-ABCDEFGHIJKLMNOP"
     template: scheduling.json
     skip: false
   type:
@@ -41,10 +39,9 @@ configs:
   config:
     parameters:
       syntheticlocation__PTC_PRIVATE_LOCATION__id:
-        configId: PTC_PRIVATE_LOCATION
-        configType: synthetic-location
-        property: id
-        type: reference
+        type: environment
+        name: tenant_private_location
+        default: "SYNTHETIC_LOCATION-ABCDEFGHIJKLMNOP"
     template: scheduling.json
     skip: false
   type:
