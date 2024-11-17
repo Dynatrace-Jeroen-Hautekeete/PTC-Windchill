@@ -1,0 +1,222 @@
+name: custom:com.ptc.jmx
+version: 0.0.1
+minDynatraceVersion: 1.275.0
+author:
+  name: "Dynatrace ACE Services - Jeroen Hautekeete"
+
+jmx:
+  groups:
+    - group: jmx
+      subgroups:
+        - subgroup: com.ptc:Name=ActiveUsers,wt.subsystem=Monitors,*
+          query: com.ptc:Name=ActiveUsers,wt.subsystem=Monitors,*
+          featureSet: ActiveUsers
+          metrics:
+            - key: com.ptc.jmx.activeusers.metric_ActiveUserCount
+              value: attribute:ActiveUserCount
+              type: gauge
+            - key: com.ptc.jmx.activeusers.metric_TotalActiveUserCount
+              value: attribute:TotalActiveUserCount
+              type: gauge
+        - subgroup: com.ptc:name=*,wt.monitorType=Caches,wt.subsystem=Monitors,*
+          query: com.ptc:name=*,wt.monitorType=Caches,wt.subsystem=Monitors,*
+          featureSet: Caches
+          metrics:
+            - key: com.ptc.jmx.caches.metric_CacheSize
+              value: attribute:CacheSize
+              type: gauge
+            - key: com.ptc.jmx.caches.metric_CacheEntryCount
+              value: attribute:CacheEntryCount
+              type: gauge
+          dimensions:
+            - key: name
+              value: property:name
+        - subgroup: com.ptc:Name=*,wt.monitorType=Queues,wt.subsystem=Monitors,*
+          query: com.ptc:Name=*,wt.monitorType=Queues,wt.subsystem=Monitors,*
+          featureSet: Queues
+          metrics:
+            - key: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds
+              value: attribute:MaxEntryExecTimeSeconds
+              type: gauge
+            - key: com.ptc.jmx.queues.metric_TotalEntries
+              value: attribute:TotalEntries
+              type: gauge
+            - key: com.ptc.jmx.queues.metric_WaitingReadyEntries
+              value: attribute:WaitingReadyEntries
+              type: gauge
+          dimensions:
+            - key: name
+              value: property:Name
+
+metrics:
+  - key: com.ptc.jmx.activeusers.metric_ActiveUserCount
+    metadata:
+      displayName: PTC Active User Count
+      description: PTC Active User Count
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.activeusers.metric_TotalActiveUserCount
+    metadata:
+      displayName: PTC Total Active User Count
+      description: PTC Total Active User Count
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.caches.metric_CacheSize
+    metadata:
+      displayName: PTC Cache Size
+      description: PTC Cache Size
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.caches.metric_CacheEntryCount
+    metadata:
+      displayName: PTC Cache Entry Count
+      description: PTC Cache Entry Count
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds
+    metadata:
+      displayName: PTC Max Entry ExecTime Seconds
+      description: PTC Max Entry ExecTime Seconds
+      unit: Second
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.queues.metric_TotalEntries
+    metadata:
+      displayName: PTC Total Entries
+      description: PTC Total Entries
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+  - key: com.ptc.jmx.queues.metric_WaitingReadyEntries
+    metadata:
+      displayName: PTC WaitingReady Entries
+      description: PTC WaitingReady Entries
+      unit: Count
+      sourceEntityType: process_group_instance
+      tags:
+        - JMX
+
+screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: METRIC_TABLE
+        key: metrictable-jmx-ptc_activeusers
+        conditions:
+          - metricAvailable|metric=dsfm:extension.status:filter(and(eq("dt.extension.name","custom:com.ptc.jmx.activeusers"),in("dt.entity.host",
+            entitySelector("entityId($(entityId))"))))|lastWrittenWithinDays=5
+      - type: METRIC_TABLE
+        key: metrictable-jmx-ptc_caches
+        conditions:
+          - metricAvailable|metric=dsfm:extension.status:filter(and(eq("dt.extension.name","custom:com.ptc.jmx.caches"),in("dt.entity.host",
+            entitySelector("entityId($(entityId))"))))|lastWrittenWithinDays=5
+      - type: METRIC_TABLE
+        key: metrictable-jmx-ptc_queues
+        conditions:
+          - metricAvailable|metric=dsfm:extension.status:filter(and(eq("dt.extension.name","custom:com.ptc.jmx.queues"),in("dt.entity.host",
+            entitySelector("entityId($(entityId))"))))|lastWrittenWithinDays=5
+    metricTableCards:
+      - key: metrictable-jmx-ptc_activeusers
+        displayName: PTC Active users (com.ptc.jmx.activeusers)
+        pageSize: 5
+        numberOfVisibleCharts: 2
+        hideEmptyCharts: true
+        displayCharts: true
+        enableDetailsExpandability: true
+        charts:
+          - displayName: Active User Count
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.activeusers.metric_ActiveUserCount:splitBy()
+                  metricSelectorSort: com.ptc.jmx.activeusers.metric_ActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.activeusers.metric_ActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Active User Count
+          - displayName: Total Active User Count
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: jmx.activeusers.metric_TotalActiveUserCount:splitBy()
+                  metricSelectorSort: jmx.activeusers.metric_TotalActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: jmx.activeusers.metric_TotalActiveUserCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Total Active User Count                    
+      - key: metrictable-jmx-ptc_caches
+        displayName: PTC Caches (com.ptc.jmx.caches)
+        pageSize: 5
+        numberOfVisibleCharts: 2
+        hideEmptyCharts: true
+        displayCharts: true
+        enableDetailsExpandability: true
+        charts:
+          - displayName: Cache Size
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.caches.metric_CacheSize:splitBy()
+                  metricSelectorSort: com.ptc.jmx.caches.metric_CacheSize$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.caches.metric_CacheSize$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Cache Size
+          - displayName: Cache Entry Count
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.caches.metric_CacheEntryCount:splitBy()
+                  metricSelectorSort: com.ptc.jmx.caches.metric_CacheEntryCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.caches.metric_CacheEntryCount$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Cache Entry Count
+      - key: metrictable-jmx-ptc_queues
+        displayName: PTC Queues (com.ptc.jmx.queues)
+        pageSize: 5
+        numberOfVisibleCharts: 3
+        hideEmptyCharts: true
+        displayCharts: true
+        enableDetailsExpandability: true
+        charts:
+          - displayName: Max Entry ExecTime Seconds
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_MaxEntryExecTimeSeconds$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Max Entry ExecTime Seconds
+          - displayName: Total Entries
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_TotalEntries:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_TotalEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_TotalEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: Total Entries
+          - displayName: WaitingReady Entries
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              stacked: false
+              metrics:
+                - metricSelector: com.ptc.jmx.queues.metric_WaitingReadyEntries:splitBy()
+                  metricSelectorSort: com.ptc.jmx.queues.metric_WaitingReadyEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance"):avg$(aggregation):last:sort(value(avg,$(sortOrder))):names
+                  metricSelectorDetailed: com.ptc.jmx.queues.metric_WaitingReadyEntries$(entityFilter)$(userFilter):splitBy("dt.entity.process_group_instance")$(aggregation)
+                  visualization:
+                    displayName: WaitingReady Entries
+                    
