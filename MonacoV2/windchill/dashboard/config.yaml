@@ -88,7 +88,6 @@ configs:
       extractedIDs:
         type: value
         value:
-          id_APPLICATION_681D2E7F8A1E0E96: APPLICATION-681D2E7F8A1E0E96
           id_GEOLOCATION_0000000000000000: GEOLOCATION-0000000000000000
           id_SERVICE_9E7937A49699DC11: SERVICE-9E7937A49699DC11
           id_SERVICE_DFC72BC4F17E07F4: SERVICE-DFC72BC4F17E07F4
@@ -97,7 +96,7 @@ configs:
         configId: PTC
         configType: application-web
         property: id
-        type: reference          
+        type: reference
     template: m201-hostwindchillmonitoring.json
     skip: false
   type:

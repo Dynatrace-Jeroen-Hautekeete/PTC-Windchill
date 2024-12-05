@@ -12,17 +12,35 @@ The API Token needs to have these minimum permissions:
 
 ![GitHub Logo](/images/TokenPermissions.png)
 
-All the relevant files required to create the Dynatrace objects are in the **assets** directory. Under this directory, there are subfolders containing the assets by category. Each subfolder is prefixed by a numeric value to show the order in which these objects need to be created. Note that some dashboards may require minor configuration after deployment - such as filtering a tile to a particular process group.
+This version of the starter set has been updated to take advantage of Monaco to deploy the configurations and the JMX extensions were regrouped into a single Extension Framework 2.0 JMX custom extension. These configurations serve as an example - make sure to adapt or extend the settings, names, patterns to your specific environment requirements.
 
-Example synthetic monitors are available in the **synthetic** directory, please refer to [README-Synthetic.md](https://github.com/dynatrace-oss/PTC-Windchill/tree/main/synthetic/README-Synthetic.md) - examples include remote file server, queue and server status monitors.
+The Monaco projects can be found in the **MonacoV2** folder.
+The Extension sources can be found in the **EF20** folder.
 
-There are two ways to deploy the assets to your Dynatrace tenant, with the utility tool or uploading the them manually. Each option is covered in more detail below.
+### Monaco V2 Configuration
 
-### 1. Utility Tool
+Step | Task | Notes  
+---- | ---- | ----  
+1 | Download and install [Dynatrace Monaco](https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation) | Windows / MacOS / Linux  
+2 | Change directory into the MonacoV2 folder  
+3 | Edit the manifest.yaml file and enter your tenant's URL   
+4 | Export your API token as an environment variable named "tenant_token"  
+5 | Check your settings with a Monaco dry-run : monaco deploy -d manifest.yaml -e tenant -p windchill  
+6 | Deploy the windchill project : monaco deploy manifest.yaml -e tenant -p windchill  
 
-A utility tool is available to automatically upload all the assets to the Dynatrace tenant. In order to use the utility:
-* Clone or download this repo. 
-* [Download](https://github.com/dynatrace-oss/PTC-Windchill/releases/latest) the utility for your OS. Unzip and move the file PTC-Windchill_x.x.x to the root of your cloned directory. To run the executable - open command prompt, navigate to the executable and run it.
+After deployment you'll have to 
+* adapt the URL detection to your application's URL (or change it before deploy in windchill/builtinrum.web.app-detection).
+* update the dashboard m201-hostwindchillmonitoring - adapt geolocation, and update service tiles to filter the detected services in your environment.
+
+### Monaco V2 Synthetic script
+
+Step | Task | Notes  
+---- | ---- | ----  
+1 | Execute steps 1-4 from above if you dan't already done this  
+2 | Lookup the Location ID from private location where you wish to run the scripts from. export this location ID as env variable named "tenant_private_location"  
+2 | Check your settings with a Monaco dry-run : monaco deploy -d manifest.yaml -e tenant -p synthetic  
+3 | Deploy the windchill project : monaco deploy manifest.yaml -e tenant -p synthetic  
+
 
 ### 2. Manually upload the components
 * Please use any tool of your convenience (Postman, curl etc.) to make POST REST calls to your Dynatrace tenant or utilize the API explorer in the Dynatrace UI. Apply all REST calls of the files in a given subfolder.

@@ -3,7 +3,6 @@
     "dashboardFilter": null,
     "hasConsistentColors": false,
     "name": "{{.name}}",
-    "owner": "jeroen.hautekeete@dynatrace.com",
     "preset": true,
     "shared": true,
     "tags": [
@@ -149,7 +148,7 @@
     },
     {
       "assignedEntities": [
-        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+        "{{ .applicationweb__PTC__id }}"
       ],
       "bounds": {
         "height": 304,
@@ -169,7 +168,7 @@
     },
     {
       "assignedEntities": [
-        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+        "{{ .applicationweb__PTC__id }}"
       ],
       "bounds": {
         "height": 304,
@@ -264,7 +263,7 @@
     },
     {
       "assignedEntities": [
-        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+        "{{ .applicationweb__PTC__id }}"
       ],
       "bounds": {
         "height": 304,
@@ -321,7 +320,7 @@
     },
     {
       "assignedEntities": [
-        "{{ .extractedIDs.id_APPLICATION_681D2E7F8A1E0E96 }}"
+        "{{ .applicationweb__PTC__id }}"
       ],
       "bounds": {
         "height": 304,

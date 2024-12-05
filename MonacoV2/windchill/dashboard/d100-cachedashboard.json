@@ -3,7 +3,6 @@
     "dashboardFilter": null,
     "hasConsistentColors": false,
     "name": "{{.name}}",
-    "owner": "jeroen.hautekeete@dynatrace.com",
     "preset": true,
     "shared": true,
     "tags": [
