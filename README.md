@@ -8,7 +8,7 @@ Name | Description
 Dynatrace tenant url | `Managed` https://{your-domain}/e/{your-environment-id}  <br/>`SaaS` https://{your-environment-id}.live.dynatrace.com
 API Token | Required permissions outlined in the screenshot below
 
-The API Token needs to have these minimum permissions:
+The API Token for the Monaco steps needs to have these minimum permissions:
 
 ![GitHub Logo](/images/TokenPermissions.png)
 
@@ -50,9 +50,10 @@ Step | Task | Notes
 
 The extension is a custom JMX extension, and must be packaged, signed and distributed.
 
-You can use the [Add-on for VS Code](https://developer.dynatrace.com/develop/dynatrace-extensions-vscode/getting-started)  
-Or you can follow the steps in [Sign extensions](https://docs.dynatrace.com/docs/ingest-from/extensions20/sign-extension)
+You can use the [Add-on for VS Code](https://developer.dynatrace.com/develop/dynatrace-extensions-vscode/getting-started),  
+or you can follow the steps in [Sign extensions](https://docs.dynatrace.com/docs/ingest-from/extensions20/sign-extension)
 
+Note: the procedures above require a separate API token with different scopes than for Monaco
 
 ### Contact
 
